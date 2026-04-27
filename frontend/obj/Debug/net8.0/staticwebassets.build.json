@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "3DsOh+Ym+MyzdqFMlbbuKb6rO1yjaWbKiQu+EzNUX4g=",
+  "Source": "frontend",
+  "BasePath": "_content/frontend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
