@@ -9,32 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<script>
-document.querySelector("form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const inputs = document.querySelectorAll("input");
-
-    const data = {
-        email: inputs[0].value,
-        password: inputs[1].value
-    };
-
-    const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-
-    if (response.ok) {
-        alert("Zalogowano");
-    } else {
-        alert("Błąd logowania");
-    }
-});
-</script>
 <body>
 
     <div class="background-glow glow-1"></div>
@@ -76,5 +50,45 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 
     </div>
 
+    <script src="auth-config.js"></script>
+    <script>
+    document.querySelector("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const base = window.BARBERSHOP_API || "http://localhost:5140";
+        const inputs = document.querySelectorAll("form input");
+
+        const data = {
+            email: inputs[0].value.trim(),
+            password: inputs[1].value
+        };
+
+        const response = await fetch(base + "/api/Auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        let message;
+        try {
+            const result = await response.json();
+            if (response.ok) {
+                if (result.token) {
+                    localStorage.setItem("authToken", result.token);
+                    localStorage.setItem("authUser", JSON.stringify({
+                        email: result.email,
+                        fullName: result.fullName,
+                        userId: result.userId
+                    }));
+                }
+                message = "Zalogowano pomyślnie.";
+            } else
+                message = result.error || result.title || "Błąd logowania.";
+        } catch {
+            message = response.ok ? "Zalogowano." : "Błąd sieci lub odpowiedzi serwera.";
+        }
+        alert(message);
+    });
+    </script>
 </body>
 </html>
