@@ -17,6 +17,11 @@ publish/
 *.userosscache
 *.sln.docstates
 
+# SQLite (dev)
+*.db
+*.db-shm
+*.db-wal
+
 # Logs and runtime files
 *.log
 logs/

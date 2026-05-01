@@ -1,12 +1,331 @@
 {
   "Version": 1,
-  "Hash": "3DsOh+Ym+MyzdqFMlbbuKb6rO1yjaWbKiQu+EzNUX4g=",
+  "Hash": "NLTZ7IUsvQJeapFDS9Q3SJKH/6/wNq+VtVbfmQCERlI=",
   "Source": "frontend",
   "BasePath": "_content/frontend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "frontend/wwwroot",
+      "Source": "frontend",
+      "ContentRoot": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/",
+      "BasePath": "_content/frontend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/index.html",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/",
+      "BasePath": "_content/frontend",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yilucxo012",
+      "Integrity": "evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    },
+    {
+      "Identity": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/script.js",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/",
+      "BasePath": "_content/frontend",
+      "RelativePath": "script#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fhi6h4a09u",
+      "Integrity": "E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/script.js"
+    },
+    {
+      "Identity": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/style.css",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/",
+      "BasePath": "_content/frontend",
+      "RelativePath": "style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ynb382xnhk",
+      "Integrity": "zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/style.css"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "index.html",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1636"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:50:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0="
+        }
+      ]
+    },
+    {
+      "Route": "index.yilucxo012.html",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1636"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:50:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yilucxo012"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0="
+        }
+      ]
+    },
+    {
+      "Route": "script.fhi6h4a09u.js",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2256"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:50:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fhi6h4a09u"
+        },
+        {
+          "Name": "label",
+          "Value": "script.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s="
+        }
+      ]
+    },
+    {
+      "Route": "script.js",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/script.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2256"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:50:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s="
+        }
+      ]
+    },
+    {
+      "Route": "style.css",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg="
+        }
+      ]
+    },
+    {
+      "Route": "style.ynb382xnhk.css",
+      "AssetFile": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 01 May 2026 14:35:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ynb382xnhk"
+        },
+        {
+          "Name": "label",
+          "Value": "style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg="
+        }
+      ]
+    }
+  ]
 }

@@ -26,3 +26,5 @@
 /Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/obj/Debug/net8.0/frontend.pdb
 /Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/obj/Debug/net8.0/frontend.genruntimeconfig.cache
 /Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/obj/Debug/net8.0/ref/frontend.dll
+/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/obj/Debug/net8.0/frontend.sourcelink.json
+/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/bin/Debug/net8.0/frontend.staticwebassets.runtime.json
