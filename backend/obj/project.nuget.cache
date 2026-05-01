@@ -1,14 +1,9 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "mfyaYkRgYKM=",
-=======
-  "dgSpecHash": "BXNruxjLlyo=",
->>>>>>> front
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\backend\\backend.csproj",
+  "projectFilePath": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/backend/backend.csproj",
   "expectedPackageFiles": [
-<<<<<<< HEAD
     "/Users/eugene/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/eugene/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.11/microsoft.aspnetcore.authentication.jwtbearer.8.0.11.nupkg.sha512",
     "/Users/eugene/.nuget/packages/microsoft.aspnetcore.cryptography.internal/8.0.11/microsoft.aspnetcore.cryptography.internal.8.0.11.nupkg.sha512",
@@ -76,15 +71,6 @@
     "/Users/eugene/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
     "/Users/eugene/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
     "/Users/eugene/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.14/microsoft.netcore.app.host.osx-x64.8.0.14.nupkg.sha512"
-=======
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.12\\microsoft.aspnetcore.openapi.8.0.12.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
->>>>>>> front
   ],
   "logs": []
 }
