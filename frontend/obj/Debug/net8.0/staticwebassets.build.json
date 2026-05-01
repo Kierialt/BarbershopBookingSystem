@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "NLTZ7IUsvQJeapFDS9Q3SJKH/6/wNq+VtVbfmQCERlI=",
+=======
+  "Hash": "nOi62idlccVp3bVOM/2692ZKYhBjfJRaLlNn3Eo/fi4=",
+>>>>>>> front
   "Source": "frontend",
   "BasePath": "_content/frontend",
   "Mode": "Default",
@@ -8,15 +12,22 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
+<<<<<<< HEAD
       "Name": "frontend/wwwroot",
       "Source": "frontend",
       "ContentRoot": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/",
+=======
+      "Name": "frontend\\wwwroot",
+      "Source": "frontend",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+>>>>>>> front
       "BasePath": "_content/frontend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
+<<<<<<< HEAD
       "Identity": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/wwwroot/index.html",
       "SourceId": "frontend",
       "SourceType": "Discovered",
@@ -27,10 +38,23 @@
       "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
+=======
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\index.html",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+>>>>>>> front
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "yilucxo012",
       "Integrity": "evhKm0LXbspOrdrMDqzeFA7IcxaJ8BHZAVHIU8N1XO0=",
       "CopyToOutputDirectory": "Never",
@@ -48,10 +72,28 @@
       "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
+=======
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\loginpage.css",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "loginpage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+>>>>>>> front
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "fhi6h4a09u",
       "Integrity": "E4RKeAoXrqQQDiIgGoQx5rXNERsKOQAkOxSi9Ccwp8s=",
       "CopyToOutputDirectory": "Never",
@@ -69,10 +111,28 @@
       "AssetMode": "All",
       "AssetRole": "Primary",
       "AssetMergeBehavior": "",
+=======
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\loginpage.css"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\loginpage.html",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "loginpage.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+>>>>>>> front
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+<<<<<<< HEAD
       "Fingerprint": "ynb382xnhk",
       "Integrity": "zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg=",
       "CopyToOutputDirectory": "Never",
@@ -326,6 +386,87 @@
           "Value": "sha256-zn1eXbchrp45j5q9LndfmPtJ4JhPruhRGQOymHY9mqg="
         }
       ]
+=======
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\loginpage.html"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\register.css",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\register.css"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\registrationpage.html",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "registrationpage.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\registrationpage.html"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\script.js",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\style.css",
+      "SourceId": "frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\wwwroot\\",
+      "BasePath": "_content/frontend",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
+>>>>>>> front
     }
   ]
 }

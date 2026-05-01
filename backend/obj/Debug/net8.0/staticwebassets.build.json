@@ -1,11 +1,16 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "S2gWfuReDaEF/oGY3uprG4Ao1juQYny4OBiARNmWJaM=",
+=======
+  "Hash": "7/yvsnDRTixX0vVer35KSjS1HzfM4rGxA/gc1emwSdw=",
+>>>>>>> front
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
+<<<<<<< HEAD
   "DiscoveryPatterns": [
     {
       "Name": "backend/wwwroot",
@@ -122,4 +127,8 @@
       ]
     }
   ]
+=======
+  "DiscoveryPatterns": [],
+  "Assets": []
+>>>>>>> front
 }

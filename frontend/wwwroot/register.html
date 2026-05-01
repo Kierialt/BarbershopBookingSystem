@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja — BarberBook</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<script>
+document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const inputs = document.querySelectorAll("input");
+
+    const data = {
+        name: inputs[0].value,
+        email: inputs[1].value,
+        password: inputs[2].value
+    };
+
+    const response = await fetch("/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    alert(result.message);
+});
+</script>
+<body>
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+
+    <div class="register-wrapper">
+
+        <div class="register-left">
+            <div class="logo">Barber<span>Book</span></div>
+
+            <h1>Dołącz do BarberBook</h1>
+
+            <p>
+                Odkrywaj najlepsze barbershopy, rezerwuj wizyty online
+                i zarządzaj swoimi terminami w jednym miejscu.
+            </p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Szybka rezerwacja wizyt</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Najlepsze salony w Twoim mieście</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Historia wizyt i ulubione miejsca</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-box">
+            <h2>Rejestracja</h2>
+            <p class="subtitle">Załóż konto i zacznij korzystać z platformy</p>
+
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Imię i nazwisko" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" placeholder="Adres e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Hasło" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" placeholder="Powtórz hasło" required>
+                </div>
+
+                <button type="submit" class="register-btn">Utwórz konto</button>
+            </form>
+
+            <div class="login-link">
+                Masz już konto? <a href="login.html">Zaloguj się</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
