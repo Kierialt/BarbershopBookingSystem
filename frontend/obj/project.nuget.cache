@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gPTaAD+eQHE=",
+  "dgSpecHash": "j6kvDt6a3Jc=",
   "success": true,
-  "projectFilePath": "/Users/eugene/Desktop/inżynieria oprogramowania/BarbershopBookingSystem/frontend/frontend.csproj",
-  "expectedPackageFiles": [
-    "/Users/eugene/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
-    "/Users/eugene/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
-    "/Users/eugene/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.14/microsoft.netcore.app.host.osx-x64.8.0.14.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Admin\\OneDrive\\Desktop\\BarbershopBookingSystem\\frontend\\frontend.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,0 +1,129 @@
+
+
+
+.login-box {
+    flex: 1;
+    max-width: 430px;
+    background: rgba(20, 20, 20, 0.92);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 30px;
+    padding: 50px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    background: #111;
+    border: 1px solid #2c2c2c;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #f2b705;
+    box-shadow: 0 0 0 4px rgba(242,183,5,0.15);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f2b705, #ffcf33);
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(242,183,5,0.35);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    color: #999;
+}
+
+.register-link a {
+    color: #f2b705;
+    text-decoration: none;
+}
+
+@media(max-width: 950px) {
+    .login-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+body {
+    background: #050505;
+    color: white;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #f2b705;
+}
+
+.register-box,
+.login-box {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid #222;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.input-group input {
+    background: #111;
+    border: 1px solid #2b2b2b;
+    color: white;
+}
+
+.input-group input:focus {
+    border-color: #f2b705;
+    box-shadow: 0 0 0 4px rgba(242,183,5,0.15);
+}
+
+.register-btn,
+.login-btn {
+    background: linear-gradient(135deg, #f2b705, #ffcf33);
+    color: #111;
+    font-weight: 700;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+    box-shadow: 0 10px 25px rgba(242,183,5,0.35);
+}
