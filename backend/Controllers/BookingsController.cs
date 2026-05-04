@@ -98,7 +98,8 @@ public class BookingsController : ControllerBase
         if (string.IsNullOrEmpty(userId))
             return Unauthorized();
 
-        var (ok, error) = await _bookings.RescheduleAsync(userId, id, request.NewStartUtc, cancellationToken);
+        var (ok, error) =
+            await _bookings.RescheduleAsync(userId, id, request.NewDay, request.NewStartUtc, cancellationToken);
         if (!ok)
             return BadRequest(new { error });
 

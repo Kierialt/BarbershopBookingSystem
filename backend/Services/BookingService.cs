@@ -80,10 +80,15 @@ public class BookingService : IBookingService
         return (true, null);
     }
 
-    public async Task<(bool Ok, string? Error)> RescheduleAsync(string clientId, int bookingId, DateTime newStartUtc,
-        CancellationToken cancellationToken = default)
+    public async Task<(bool Ok, string? Error)> RescheduleAsync(string clientId, int bookingId, DateOnly newDay,
+        DateTime newStartUtc, CancellationToken cancellationToken = default)
     {
         newStartUtc = NormalizeUtc(newStartUtc);
+        var startPolandDate = GetPolandDateFromUtc(newStartUtc);
+        if (startPolandDate != newDay)
+            return (false,
+                "Pole newDay musi być tym samym dniem kalendarzowym co newStartUtc w strefie Europe/Warsaw.");
+
         var booking = await _db.Bookings
             .Include(b => b.Service)
             .FirstOrDefaultAsync(b => b.Id == bookingId, cancellationToken);
@@ -106,8 +111,8 @@ public class BookingService : IBookingService
                 cancellationToken))
             return (false, "Wybrany termin jest już zajęty.");
 
-        var allowed = await _availability.GetAvailableSlotsUtcAsync(booking.BarberId, booking.ServiceId,
-            GetPolandDateFromUtc(newStartUtc), cancellationToken);
+        var allowed = await _availability.GetAvailableSlotsUtcAsync(booking.BarberId, booking.ServiceId, newDay,
+            cancellationToken);
         if (!allowed.Any(s => Math.Abs((s - newStartUtc).TotalMinutes) < 1))
             return (false, "Termin nie wypada w dostępnych slotach pracy salonu.");
 

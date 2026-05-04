@@ -17,6 +17,11 @@ public class CreateBookingRequest
 
 public class RescheduleBookingRequest
 {
+    /// <summary>Nowy dzień wizyty (kalendarz w strefie Europe/Warsaw). Może być inny niż dzień pierwotnej rezerwacji.</summary>
+    [Required]
+    public DateOnly NewDay { get; set; }
+
+    /// <summary>Początek wizyty w UTC; musi należeć do <see cref="NewDay"/> po przeliczeniu na czas polski.</summary>
     [Required]
     public DateTime NewStartUtc { get; set; }
 }

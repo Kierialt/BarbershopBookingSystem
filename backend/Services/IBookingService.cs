@@ -10,6 +10,6 @@ public interface IBookingService
     Task<(bool Ok, string? Error)> CancelAsync(string clientId, int bookingId,
         CancellationToken cancellationToken = default);
 
-    Task<(bool Ok, string? Error)> RescheduleAsync(string clientId, int bookingId, DateTime newStartUtc,
-        CancellationToken cancellationToken = default);
+    Task<(bool Ok, string? Error)> RescheduleAsync(string clientId, int bookingId, DateOnly newDay,
+        DateTime newStartUtc, CancellationToken cancellationToken = default);
 }

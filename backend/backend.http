@@ -25,3 +25,10 @@ Accept: application/json
 ### Moje rezerwacje (nagłówek Authorization: Bearer {{token}})
 GET {{backend_HostAddress}}/api/Bookings/me
 Accept: application/json
+
+### Zmiana terminu (JWT). newDay = dzień w PL; newStartUtc = slot z GET .../availability (ISO UTC)
+# PATCH {{backend_HostAddress}}/api/Bookings/1/reschedule
+# Authorization: Bearer {{token}}
+# Content-Type: application/json
+#
+# { "newDay": "2026-05-12", "newStartUtc": "2026-05-12T06:30:00Z" }
