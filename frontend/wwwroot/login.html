@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logowanie — BarberBook</title>
+
     <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="/loginpage/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+    <!-- BACKGROUND -->
     <div class="background-glow glow-1"></div>
     <div class="background-glow glow-2"></div>
 
-    <div class="login-wrapper">
+    <div class="auth-wrapper">
 
-        <div class="login-left">
+        <!-- LEFT SIDE -->
+        <div class="auth-left">
             <div class="logo">Barber<span>Book</span></div>
 
-            <h1>Witaj ponownie</h1>
+            <h1>
+                Witaj ponownie <br>
+                <span class="highlight">zaloguj się teraz</span>
+            </h1>
 
-            <p>
-                Zaloguj się do swojego konta i zarządzaj rezerwacjami,
-                historią wizyt oraz ulubionymi salonami.
+            <p class="hero-text">
+                Uzyskaj dostęp do swojego konta, zarządzaj wizytami,
+                przeglądaj historię i korzystaj z najlepszych barbershopów.
             </p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Szybki dostęp do rezerwacji</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Twoja historia wizyt</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✔</span>
+                    <p>Ulubione salony w jednym miejscu</p>
+                </div>
+            </div>
         </div>
 
-        <div class="login-box">
-            <h2>Zaloguj się</h2>
+        <!-- RIGHT SIDE -->
+        <div class="auth-box">
+            <h2>Logowanie</h2>
             <p class="subtitle">Wprowadź dane logowania</p>
 
-            <form>
+            <form id="loginForm">
                 <div class="input-group">
                     <input type="email" placeholder="Adres e-mail" required>
                 </div>
@@ -41,10 +63,12 @@
                     <input type="password" placeholder="Hasło" required>
                 </div>
 
-                <button type="submit" class="login-btn">Zaloguj się</button>
+                <button type="submit" class="auth-btn">
+                    Zaloguj się
+                </button>
             </form>
 
-            <div class="register-link">
+            <div class="auth-link">
                 Nie masz konta? <a href="register.html">Zarejestruj się</a>
             </div>
         </div>
@@ -52,44 +76,42 @@
     </div>
 
     <script src="auth-config.js"></script>
+
     <script>
-    document.querySelector("form").addEventListener("submit", async (e) => {
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const base = window.BARBERSHOP_API || "http://localhost:5140";
-        const inputs = document.querySelectorAll("form input");
+        const inputs = document.querySelectorAll("#loginForm input");
 
         const data = {
             email: inputs[0].value.trim(),
             password: inputs[1].value
         };
 
-        const response = await fetch(base + "/api/Auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-
-        let message;
         try {
+            const response = await fetch(base + "/api/Auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
             const result = await response.json();
+
             if (response.ok) {
                 if (result.token) {
                     localStorage.setItem("authToken", result.token);
-                    localStorage.setItem("authUser", JSON.stringify({
-                        email: result.email,
-                        fullName: result.fullName,
-                        userId: result.userId
-                    }));
+                    localStorage.setItem("authUser", JSON.stringify(result));
                 }
-                message = "Zalogowano pomyślnie.";
-            } else
-                message = result.error || result.title || "Błąd logowania.";
+                alert("Zalogowano pomyślnie!");
+            } else {
+                alert(result.error || "Błąd logowania.");
+            }
         } catch {
-            message = response.ok ? "Zalogowano." : "Błąd sieci lub odpowiedzi serwera.";
+            alert("Błąd serwera.");
         }
-        alert(message);
     });
     </script>
+
 </body>
 </html>
