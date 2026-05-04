@@ -93,6 +93,7 @@ footer {
 .navbar {
     background-color: #000000;
     padding: 1rem;
+    
 }
 
 .nav-links {
@@ -216,6 +217,11 @@ footer {
 
 .user-menu {
     position: relative;
+   justify-content: right;
+   margin-left: auto;
+    display: flex;
+    align-items: center;
+    
 }
 
 .user-btn {
@@ -227,9 +233,12 @@ footer {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center ;
     transition: 0.3s ease;
     background: #111;
+    
+        
+  
 }
 
 .user-btn:hover {
@@ -246,12 +255,15 @@ footer {
     position: absolute;
     top: 65px;
     right: 0;
+
     background: #111;
     border: 1px solid #2b2b2b;
     border-radius: 18px;
     width: 190px;
+
     display: none;
     flex-direction: column;
+
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
@@ -270,5 +282,9 @@ footer {
 }
 
 .user-menu:hover .dropdown-menu {
+    display: flex;
+}
+
+.user-menu.active .dropdown-menu {
     display: flex;
 }

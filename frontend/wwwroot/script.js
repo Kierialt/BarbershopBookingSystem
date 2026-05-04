@@ -1,26 +1,49 @@
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
+document.addEventListener('DOMContentLoaded', () => {
 
-    if (window.scrollY > 50) {
-        header.style.background = '#0d0d0d';
-        header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.3)';
-    } else {
-        header.style.background = 'rgba(17,17,17,0.95)';
-        header.style.boxShadow = 'none';
-    }
-});
+    // ===== SCROLL HEADER =====
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
 
-const links = document.querySelectorAll('.nav-links a');
+        if (window.scrollY > 50) {
+            header.style.background = '#0d0d0d';
+            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.3)';
+        } else {
+            header.style.background = 'rgba(17,17,17,0.95)';
+            header.style.boxShadow = 'none';
+        }
+    });
 
-links.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+    // ===== SMOOTH SCROLL =====
+    const links = document.querySelectorAll('.nav-links a');
 
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
 
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
+
+    // ===== DROPDOWN =====
+    const userBtn = document.querySelector('.user-btn');
+    const userMenu = document.querySelector('.user-menu');
+
+    if (userBtn && userMenu) {
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            userMenu.classList.remove('active');
+        });
+    }
+
 });
