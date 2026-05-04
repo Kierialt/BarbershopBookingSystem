@@ -4,50 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja — BarberBook</title>
+
     <link rel="stylesheet" href="register.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
+    <!-- Background -->
     <div class="background-glow glow-1"></div>
     <div class="background-glow glow-2"></div>
 
     <div class="register-wrapper">
 
+        <!-- LEFT SIDE -->
         <div class="register-left">
             <div class="logo">Barber<span>Book</span></div>
 
-            <h1>Dołącz do BarberBook</h1>
+            <h1>
+                Zarezerwuj swoją wizytę <br>
+                <span class="highlight">w kilka sekund</span>
+            </h1>
 
-            <p>
-                Odkrywaj najlepsze barbershopy, rezerwuj wizyty online
-                i zarządzaj swoimi terminami w jednym miejscu.
+            <p class="hero-text">
+                BarberBook to nowoczesna platforma do rezerwacji wizyt u barberów.
+                Znajdź najlepsze salony, zarządzaj terminami i oszczędzaj czas — wszystko w jednym miejscu.
             </p>
 
             <div class="features">
                 <div class="feature-item">
                     <span>✔</span>
-                    <p>Szybka rezerwacja wizyt</p>
+                    <p>Natychmiastowa rezerwacja online</p>
                 </div>
 
                 <div class="feature-item">
                     <span>✔</span>
-                    <p>Najlepsze salony w Twoim mieście</p>
+                    <p>Sprawdzone salony w Twojej okolicy</p>
                 </div>
 
                 <div class="feature-item">
                     <span>✔</span>
-                    <p>Historia wizyt i ulubione miejsca</p>
+                    <p>Historia wizyt i szybki dostęp</p>
                 </div>
             </div>
         </div>
 
+        <!-- RIGHT SIDE (FORM) -->
         <div class="register-box">
             <h2>Rejestracja</h2>
             <p class="subtitle">Załóż konto i zacznij korzystać z platformy</p>
 
-            <form>
+            <form id="registerForm">
                 <div class="input-group">
                     <input type="text" placeholder="Imię i nazwisko" required>
                 </div>
@@ -64,7 +71,9 @@
                     <input type="password" placeholder="Powtórz hasło" required>
                 </div>
 
-                <button type="submit" class="register-btn">Utwórz konto</button>
+                <button type="submit" class="register-btn">
+                    Utwórz konto
+                </button>
             </form>
 
             <div class="login-link">
@@ -75,53 +84,60 @@
     </div>
 
     <script src="auth-config.js"></script>
+
     <script>
-    document.querySelector("form").addEventListener("submit", async (e) => {
-        e.preventDefault();
+        const form = document.getElementById("registerForm");
 
-        const base = window.BARBERSHOP_API || "http://localhost:5140";
-        const inputs = document.querySelectorAll("form input");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-        const data = {
-            fullName: inputs[0].value.trim(),
-            email: inputs[1].value.trim(),
-            password: inputs[2].value,
-            confirmPassword: inputs[3].value
-        };
+            const base = window.BARBERSHOP_API || "http://localhost:5140";
+            const inputs = form.querySelectorAll("input");
 
-        const response = await fetch(base + "/api/Auth/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+            const data = {
+                fullName: inputs[0].value.trim(),
+                email: inputs[1].value.trim(),
+                password: inputs[2].value,
+                confirmPassword: inputs[3].value
+            };
 
-        let message;
-        try {
-            const result = await response.json();
-            if (response.ok) {
-                if (result.token) {
-                    localStorage.setItem("authToken", result.token);
-                    localStorage.setItem("authUser", JSON.stringify({
-                        email: result.email,
-                        fullName: result.fullName,
-                        userId: result.userId
-                    }));
+            try {
+                const response = await fetch(base + "/api/Auth/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    if (result.token) {
+                        localStorage.setItem("authToken", result.token);
+                        localStorage.setItem("authUser", JSON.stringify({
+                            email: result.email,
+                            fullName: result.fullName,
+                            userId: result.userId
+                        }));
+                    }
+
+                    alert("Rejestracja udana!");
+                } else {
+                    let message = "Nie udało się zarejestrować.";
+
+                    if (result.errors) {
+                        message = Array.isArray(result.errors)
+                            ? result.errors.join("\n")
+                            : Object.values(result.errors).flat().join("\n");
+                    }
+
+                    alert(message);
                 }
-                message = "Rejestracja udana. Możesz korzystać z konta.";
-            } else {
-                if (result.errors) {
-                    if (Array.isArray(result.errors))
-                        message = result.errors.join("\n");
-                    else
-                        message = Object.values(result.errors).flat().join("\n");
-                } else
-                    message = result.title || "Nie udało się zarejestrować.";
+            } catch (err) {
+                alert("Błąd sieci lub serwera.");
+                console.error(err);
             }
-        } catch {
-            message = response.ok ? "OK" : "Błąd sieci lub odpowiedzi serwera.";
-        }
-        alert(message);
-    });
+        });
     </script>
+
 </body>
 </html>
