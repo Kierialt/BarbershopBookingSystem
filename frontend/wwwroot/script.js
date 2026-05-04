@@ -35,15 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const userBtn = document.querySelector('.user-btn');
     const userMenu = document.querySelector('.user-menu');
 
-    if (userBtn && userMenu) {
-        userBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            userMenu.classList.toggle('active');
-        });
+    userBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userMenu.classList.toggle('active');
+    });
 
-        document.addEventListener('click', () => {
-            userMenu.classList.remove('active');
-        });
-    }
+    document.addEventListener('click', () => {
+        userMenu.classList.remove('active');
+    });
 
 });
