@@ -113,7 +113,7 @@
 
                 <div class="shop-card">
 
-                    <img src="/img/barber1.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -131,7 +131,7 @@
 
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -147,7 +147,7 @@
                 </div>
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -163,7 +163,7 @@
                 </div>
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -179,7 +179,7 @@
                 </div>
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -202,7 +202,7 @@
 
                 <div class="shop-card">
 
-                    <img src="/img/barber3.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -218,7 +218,7 @@
                 </div>
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -234,7 +234,7 @@
                 </div>
                 <div class="shop-card">
 
-                    <img src="/img/barber2.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -257,7 +257,7 @@
 
                 <div class="shop-card">
 
-                    <img src="/img/barber4.jpg" alt="Barber">
+                    <img src="#" alt="Barber">
 
                     <div class="shop-info">
 
@@ -279,29 +279,7 @@
     </section>
     
 
-    <script>
-
-        const buttons = document.querySelectorAll('.city-btn');
-        const panels = document.querySelectorAll('.city-panel');
-
-        buttons.forEach(button => {
-
-            button.addEventListener('click', () => {
-
-                buttons.forEach(btn => btn.classList.remove('active'));
-                panels.forEach(panel => panel.classList.remove('active'));
-
-                button.classList.add('active');
-
-                const city = button.dataset.city;
-
-                document.getElementById(city).classList.add('active');
-
-            });
-
-        });
-
-    </script>
+    <script src="cities.js"></script>
 
 </body>
 </html>
