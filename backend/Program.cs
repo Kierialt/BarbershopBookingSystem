@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text;
 using backend.Data;
 using backend.Models;
@@ -46,6 +47,7 @@ builder.Services.AddAuthentication(options =>
             ValidIssuer = jwtSection["Issuer"],
             ValidAudience = jwtSection["Audience"],
             IssuerSigningKey = signingKey,
+            RoleClaimType = ClaimTypes.Role,
             ClockSkew = TimeSpan.FromMinutes(1),
         };
     });
@@ -53,6 +55,13 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAvailabilityService, AvailabilityService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddHttpClient<IExternalBarbershopCatalog, OverpassBarbershopCatalog>((sp, client) =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var baseUrl = configuration["Overpass:BaseUrl"] ?? "https://overpass-api.de";
+    client.BaseAddress = new Uri(baseUrl);
+    client.Timeout = TimeSpan.FromSeconds(40);
+});
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -109,6 +118,32 @@ using (var scope = app.Services.CreateScope())
     }
 
     await BarbershopDemoSeeder.SeedAsync(db);
+
+    if (app.Environment.IsDevelopment())
+    {
+        var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+        var adminEmail = configuration["Demo:DevAdminEmail"]?.Trim();
+        var adminPassword = configuration["Demo:DevAdminPassword"];
+        if (!string.IsNullOrEmpty(adminEmail) && !string.IsNullOrEmpty(adminPassword))
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            if (adminUser is null)
+            {
+                adminUser = new ApplicationUser
+                {
+                    UserName = adminEmail,
+                    Email = adminEmail,
+                    FullName = "Administrator (dev)",
+                };
+                var createResult = await userManager.CreateAsync(adminUser, adminPassword);
+                if (createResult.Succeeded)
+                    await userManager.AddToRoleAsync(adminUser, RoleNames.Administrator);
+            }
+            else if (!await userManager.IsInRoleAsync(adminUser, RoleNames.Administrator))
+                await userManager.AddToRoleAsync(adminUser, RoleNames.Administrator);
+        }
+    }
 }
 
 if (app.Environment.IsDevelopment())
