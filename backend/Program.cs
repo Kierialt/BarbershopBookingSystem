@@ -51,6 +51,8 @@ builder.Services.AddAuthentication(options =>
     });
 
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IAvailabilityService, AvailabilityService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -97,6 +99,7 @@ using (var scope = app.Services.CreateScope())
     foreach (var roleName in new[]
              {
                  RoleNames.Klient,
+                 RoleNames.Barber,
                  RoleNames.Administrator,
                  RoleNames.Wlasciciel,
              })
@@ -104,6 +107,8 @@ using (var scope = app.Services.CreateScope())
         if (!await roleManager.RoleExistsAsync(roleName))
             await roleManager.CreateAsync(new IdentityRole(roleName));
     }
+
+    await BarbershopDemoSeeder.SeedAsync(db);
 }
 
 if (app.Environment.IsDevelopment())

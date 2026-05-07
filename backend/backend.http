@@ -1,6 +1,34 @@
 @backend_HostAddress = http://localhost:5140
 
-GET {{backend_HostAddress}}/weatherforecast/
+### Lista miast (seed)
+GET {{backend_HostAddress}}/api/cities
 Accept: application/json
 
-###
+### Salony w mieście (cityId z /api/cities)
+GET {{backend_HostAddress}}/api/Barbershops?cityId=1
+Accept: application/json
+
+### Profil salonu
+GET {{backend_HostAddress}}/api/Barbershops/1
+Accept: application/json
+
+### Dostępność barbera (serviceId z profilu salonu, data RRRR-MM-DD)
+GET {{backend_HostAddress}}/api/Barbers/1/availability?serviceId=1&date=2026-05-10
+Accept: application/json
+
+### Rejestracja (Swagger: potem Authorize Bearer)
+# POST {{backend_HostAddress}}/api/Auth/register
+# Content-Type: application/json
+#
+# { "fullName": "Jan", "email": "jan@test.pl", "password": "Haslo123", "confirmPassword": "Haslo123" }
+
+### Moje rezerwacje (nagłówek Authorization: Bearer {{token}})
+GET {{backend_HostAddress}}/api/Bookings/me
+Accept: application/json
+
+### Zmiana terminu (JWT). newDay = dzień w PL; newStartUtc = slot z GET .../availability (ISO UTC)
+# PATCH {{backend_HostAddress}}/api/Bookings/1/reschedule
+# Authorization: Bearer {{token}}
+# Content-Type: application/json
+#
+# { "newDay": "2026-05-12", "newStartUtc": "2026-05-12T06:30:00Z" }
