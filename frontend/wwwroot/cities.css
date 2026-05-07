@@ -1,0 +1,244 @@
+/* ================= BASE ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0b0b0b;
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    padding: 18px 35px;
+
+    background: #000;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #f2b705;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+
+    margin-left: 60px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f2b705;
+}
+
+.user-menu {
+    margin-left: auto;
+}
+
+.user-btn {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 1px solid #2b2b2b;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+/* ================= PAGE ================= */
+
+.cities-page {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+/* ================= LEFT ================= */
+
+.cities-sidebar {
+    width: 350px;
+
+    padding: 70px 40px;
+
+    border-right: 1px solid #1d1d1d;
+
+    background: #0d0d0d;
+}
+
+.sidebar-subtitle {
+    color: #f2b705;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.cities-sidebar h2 {
+    font-size: 42px;
+
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* BUTTONS */
+
+.city-buttons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.city-btn {
+    padding: 18px 25px;
+
+    border: 1px solid #222;
+
+    border-radius: 16px;
+
+    background: #151515;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.city-btn:hover {
+    border-color: #f2b705;
+
+    transform: translateX(8px);
+}
+
+.city-btn.active {
+    background: #f2b705;
+
+    color: black;
+
+    font-weight: 700;
+}
+
+/* ================= RIGHT ================= */
+
+.barbershops-content {
+    flex: 1;
+
+    padding: 70px;
+}
+
+/* CITY PANEL */
+
+.city-panel {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+.city-panel.active {
+    display: flex;
+}
+
+/* SHOP CARD */
+
+.shop-card {
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+
+    background: #131313;
+
+    border: 1px solid #1f1f1f;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.shop-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #f2b705;
+}
+
+/* IMAGE */
+
+.shop-card img {
+    width: 340px;
+    height: 240px;
+
+    object-fit: cover;
+
+    filter: brightness(0.75);
+
+    transition: 0.4s;
+}
+
+.shop-card:hover img {
+    filter: brightness(0.95);
+
+    transform: scale(1.03);
+}
+
+/* INFO */
+
+.shop-info {
+    padding-right: 30px;
+}
+
+.shop-info h3 {
+    font-size: 34px;
+
+    margin-bottom: 20px;
+}
+
+.shop-info p {
+    color: #c7c7c7;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+}

@@ -18,6 +18,8 @@ body {
     align-items: center;
     padding: 15px 30px;
     background: #000;
+    position: relative;
+    z-index: 1000;
 }
 
 /* LOGO */
@@ -89,6 +91,7 @@ body {
     display: none;
     flex-direction: column;
     overflow: hidden;
+    z-index: 2000;
 }
 
 /* SHOW ONLY ON CLICK */
@@ -110,7 +113,304 @@ body {
 
 /* ================= CONTENT ================= */
 
-h1 {
+
+/* ================= HERO ================= */
+
+.hero-container {
+    padding: 0;
+}
+
+.hero-card {
+    position: relative;
+
+    width: 100%;
+    height: 650px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background-image: url('/img/_2.png');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     text-align: center;
-    margin-top: 100px;
+
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 64px;
+
+    max-width: 900px;
+
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 22px;
+
+    margin-bottom: 30px;
+
+    color: #d4d4d4;
+}
+
+.hero-content button {
+    padding: 16px 40px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f2b705;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.hero-content button:hover {
+    background: #ffcc29;
+
+    transform: scale(1.05);
+}
+
+
+/* ================= ABOUT SECTION ================= */
+
+.about-section {
+    padding: 120px 80px;
+
+    background: #0f0f0f;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+    max-width: 1400px;
+    margin: auto;
+}
+
+            /******************** IMAGE ********************/
+
+.about-image img {
+    width: 550px;
+    height: 650px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    filter: brightness(0.85);
+
+    transition: 0.4s;
+}
+
+.about-image img:hover {
+    transform: scale(1.03);
+
+    filter: brightness(0.95);
+}
+
+            /******************** CONTENT ********************/
+
+.about-content {
+    max-width: 600px;
+}
+
+.about-subtitle {
+    color: #f2b705;
+
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    font-size: 52px;
+
+    line-height: 1.2;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.about-content p {
+    color: #cfcfcf;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+
+.about-content button {
+    margin-top: 20px;
+
+    padding: 16px 38px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f2b705;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.about-content button:hover {
+    background: #ffcc29;
+
+    transform: scale(1.05);
+}
+
+
+/* ================= SERVICES ================= */
+
+.services-section {
+    padding: 120px 40px;
+
+    background: #0f0f0f;
+
+    overflow: hidden;
+}
+
+/* HEADER */
+
+.services-header {
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.services-header span {
+    color: #f2b705;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+.services-header h2 {
+    font-size: 64px;
+
+    margin-top: 20px;
+}
+
+/* ROW */
+
+.services-row {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 0;
+}
+
+/* CARD */
+
+.service-box {
+    position: relative;
+
+    width: 240px;
+    height: 620px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    z-index: 1;
+}
+
+/* IMAGE */
+
+.service-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(0.55);
+
+    transition: 0.4s;
+}
+
+/* OVERLAY */
+
+.service-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding-bottom: 40px;
+}
+
+/* TITLE */
+
+.service-overlay h3 {
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    transition: 0.4s;
+}
+
+/* HOVER */
+
+.service-box:hover {
+    transform: scale(1.06);
+
+    z-index: 20;
+}
+
+.service-box:hover img {
+    filter: brightness(0.8);
+}
+
+.service-box:hover h3 {
+    transform: translateY(-10px);
 }
