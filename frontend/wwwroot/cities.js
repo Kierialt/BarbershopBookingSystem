@@ -1,3 +1,5 @@
+const API_BASE = window.BARBERSHOP_API || 'http://localhost:5140';
+
 document.addEventListener('DOMContentLoaded', () => {
     const cityButtonsContainer = document.querySelector('.city-buttons');
     const shopList = document.getElementById('shopList');
@@ -10,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadCities() {
         try {
-            const response = await fetch('http://localhost:5140/api/Cities');
+            const response = await fetch(`${API_BASE}/api/Cities`);
             if (!response.ok) throw new Error('Failed to load cities');
             cities = await response.json();
             renderCityButtons();
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         reservationCard.innerHTML = '<p class="empty-state">Kliknij salon opcji po lewej stronie, aby przejść do rezerwacji.</p>';
         try {
             shopList.innerHTML = '<p class="loader">Ładowanie salonów...</p>';
-            const response = await fetch(`http://localhost:5140/api/barbershops?cityId=${cityId}`);
+            const response = await fetch(`${API_BASE}/api/barbershops?cityId=${cityId}`);
             if (!response.ok) throw new Error('Failed to load barbershops');
             const barbershops = await response.json();
             renderBarbershops(barbershops);
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!reservationCard) return;
         reservationCard.innerHTML = '<p class="loader">Ładowanie danych salonu...</p>';
         try {
-            const response = await fetch(`http://localhost:5140/api/Barbershops/${barbershopId}`);
+            const response = await fetch(`${API_BASE}/api/Barbershops/${barbershopId}`);
             if (!response.ok) throw new Error('Failed to load barbershop details');
             const detail = await response.json();
             renderReservationForm(detail);
@@ -209,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startUtc = new Date(`${datePicker.value}T${timeSelect.value}:00`).toISOString();
 
         try {
-            const response = await fetch(`http://localhost:5140/api/Bookings`, {
+            const response = await fetch(`${API_BASE}/api/Bookings`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
