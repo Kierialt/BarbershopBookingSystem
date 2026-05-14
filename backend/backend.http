@@ -32,3 +32,23 @@ Accept: application/json
 # Content-Type: application/json
 #
 # { "newDay": "2026-05-12", "newStartUtc": "2026-05-12T06:30:00Z" }
+
+### Development — konta demo (appsettings.Development.json → Demo:*)
+# Admin: admin@local.dev / AdminDev1!
+# Właściciele: wlasciciel.salon{Id}@dev.barbershop.local / OwnerDev1! (pierwsze 3 salony wg Id)
+# Barberzy: pierwsza litera imienia + nazwisko + .{idBarbera} @ dev.barbershop.local, hasło BarberDev1!
+# Klient demo: klient.demo@dev.barbershop.local / KlientDev1!
+
+### Panel salonu (JWT: Administrator lub Właściciel danego salonu; rezerwacje także Barber)
+# GET {{backend_HostAddress}}/api/shops/1/services
+# GET {{backend_HostAddress}}/api/shops/1/barbers
+# GET {{backend_HostAddress}}/api/shops/1/bookings
+
+### Moderacja opinii (JWT Administrator)
+# GET {{backend_HostAddress}}/api/admin/reviews/pending
+# PATCH {{backend_HostAddress}}/api/admin/reviews/1/moderate
+# Content-Type: application/json
+# { "approve": true }
+
+### Opinie (publiczne zatwierdzone / dodanie jako Klient z JWT)
+# GET {{backend_HostAddress}}/api/Barbershops/1/reviews

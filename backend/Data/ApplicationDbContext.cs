@@ -16,6 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Barber> Barbers => Set<Barber>();
     public DbSet<Service> Services => Set<Service>();
     public DbSet<Booking> Bookings => Set<Booking>();
+    public DbSet<Review> Reviews => Set<Review>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -30,6 +31,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             e.HasIndex(x => x.ExternalPlaceId);
             e.HasOne(x => x.City).WithMany(x => x.Barbershops).HasForeignKey(x => x.CityId)
                 .OnDelete(DeleteBehavior.Restrict);
+            e.HasOne(x => x.Owner).WithMany(x => x.OwnedBarbershops).HasForeignKey(x => x.OwnerUserId)
+                .OnDelete(DeleteBehavior.SetNull);
         });
 
         modelBuilder.Entity<City>(e =>
@@ -65,6 +68,17 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             e.HasOne(x => x.Service).WithMany(x => x.Bookings).HasForeignKey(x => x.ServiceId)
                 .OnDelete(DeleteBehavior.Restrict);
             e.HasIndex(x => new { x.BarberId, x.StartUtc });
+        });
+
+        modelBuilder.Entity<Review>(e =>
+        {
+            e.Property(x => x.Comment).HasMaxLength(2000);
+            e.HasOne(x => x.Barbershop).WithMany(x => x.Reviews).HasForeignKey(x => x.BarbershopId)
+                .OnDelete(DeleteBehavior.Cascade);
+            e.HasOne(x => x.Client).WithMany(x => x.AuthoredReviews).HasForeignKey(x => x.ClientId)
+                .OnDelete(DeleteBehavior.Restrict);
+            e.HasIndex(x => x.BarbershopId);
+            e.HasIndex(x => x.ModerationStatus);
         });
     }
 }

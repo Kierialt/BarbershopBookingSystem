@@ -22,6 +22,11 @@ public class Barbershop
 
     public BarbershopDataSource DataSource { get; set; }
 
+    /// <summary>Właściciel salonu — uprawnienia CRUD usług, pracowników, podgląd rezerwacji.</summary>
+    public string? OwnerUserId { get; set; }
+    public ApplicationUser? Owner { get; set; }
+
     public ICollection<Barber> Barbers { get; set; } = new List<Barber>();
     public ICollection<Service> Services { get; set; } = new List<Service>();
+    public ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

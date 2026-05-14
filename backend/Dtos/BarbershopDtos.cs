@@ -29,6 +29,7 @@ public class BarbershopDetailDto
     public string? ExternalPlaceId { get; set; }
     public IReadOnlyList<ServiceDto> Services { get; set; } = Array.Empty<ServiceDto>();
     public IReadOnlyList<BarberSummaryDto> Barbers { get; set; } = Array.Empty<BarberSummaryDto>();
+    public IReadOnlyList<ReviewPublicDto> ApprovedReviews { get; set; } = Array.Empty<ReviewPublicDto>();
 }
 
 public class ServiceDto

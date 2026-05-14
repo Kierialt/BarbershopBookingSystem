@@ -31,6 +31,7 @@ public static class BarbershopDemoSeeder
     private static async Task ClearDemoDomainAsync(ApplicationDbContext db,
         CancellationToken cancellationToken = default)
     {
+        await db.Reviews.ExecuteDeleteAsync(cancellationToken);
         await db.Bookings.ExecuteDeleteAsync(cancellationToken);
         await db.Barbers.ExecuteDeleteAsync(cancellationToken);
         await db.Services.ExecuteDeleteAsync(cancellationToken);
@@ -272,6 +273,12 @@ public static class BarbershopDemoSeeder
             "Maciej", "Łukasz", "Jan", "Wojtek", "Sebastian",
         };
 
+        var barberSurnames = new[]
+        {
+            "Kowalski", "Wiśniewski", "Wójcik", "Kowalczyk", "Kamiński", "Lewandowski", "Zieliński", "Szymański",
+            "Woźniak", "Dąbrowski", "Kozłowski", "Jankowski", "Mazur", "Kwiatkowski", "Krawczyk",
+        };
+
         var standardServices = new (string Name, int Minutes, decimal Price)[]
         {
             ("Strzyżenie męskie", 30, 80m),
@@ -285,8 +292,10 @@ public static class BarbershopDemoSeeder
         {
             var a = barberFirstNames[i % barberFirstNames.Length];
             var b = barberFirstNames[(i + 7) % barberFirstNames.Length];
-            barbers.Add(new Barber { BarbershopId = shop.Id, DisplayName = $"{a} K." });
-            barbers.Add(new Barber { BarbershopId = shop.Id, DisplayName = $"{b} W." });
+            var sa = barberSurnames[i % barberSurnames.Length];
+            var sb = barberSurnames[(i + 3) % barberSurnames.Length];
+            barbers.Add(new Barber { BarbershopId = shop.Id, DisplayName = $"{a} {sa}" });
+            barbers.Add(new Barber { BarbershopId = shop.Id, DisplayName = $"{b} {sb}" });
             foreach (var s in standardServices)
             {
                 services.Add(new Service

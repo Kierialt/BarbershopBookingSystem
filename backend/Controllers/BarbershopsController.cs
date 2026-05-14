@@ -62,10 +62,24 @@ public class BarbershopsController : ControllerBase
             .Include(x => x.City)
             .Include(x => x.Services)
             .Include(x => x.Barbers)
+            .Include(x => x.Reviews.Where(r => r.ModerationStatus == ReviewModerationStatus.Approved))
+            .ThenInclude(r => r.Client)
             .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         if (b is null)
             return NotFound();
+
+        var approvedReviews = b.Reviews
+            .OrderByDescending(r => r.CreatedAtUtc)
+            .Select(r => new ReviewPublicDto
+            {
+                Id = r.Id,
+                Rating = r.Rating,
+                Comment = r.Comment,
+                AuthorDisplayName = r.Client.FullName ?? r.Client.Email ?? "Klient",
+                CreatedAtUtc = r.CreatedAtUtc,
+            })
+            .ToList();
 
         var dto = new BarbershopDetailDto
         {
@@ -95,6 +109,7 @@ public class BarbershopsController : ControllerBase
                 DisplayName = x.DisplayName,
                 BarbershopId = x.BarbershopId,
             }).ToList(),
+            ApprovedReviews = approvedReviews,
         };
 
         return Ok(dto);
