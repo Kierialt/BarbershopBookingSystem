@@ -1,0 +1,15 @@
+{
+  "Jwt": {
+    "Key": "Min-32-znakow-losowy-lub-staly-klucz-dev"
+  },
+  "Demo": {
+    "AllowReseedEndpoint": true,
+    "DevAdminEmail": "admin@local.dev",
+    "DevAdminPassword": "ZmienHaslo1!",
+    "SeedStaffAccounts": true,
+    "StaffEmailDomain": "dev.barbershop.local",
+    "DevBarberPassword": "ZmienHaslo1!",
+    "DevOwnerPassword": "ZmienHaslo1!",
+    "DevClientPassword": "ZmienHaslo1!"
+  }
+}
