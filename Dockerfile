@@ -6,8 +6,11 @@ COPY backend/backend.csproj ./backend/
 RUN dotnet restore ./backend/backend.csproj
 
 COPY backend/ ./backend/
+COPY frontend/wwwroot ./frontend/wwwroot
 WORKDIR /src/backend
-RUN dotnet publish -c Release -o /app/publish --no-restore
+RUN dotnet publish -c Release -o /app/publish --no-restore \
+    && mkdir -p /app/publish/wwwroot \
+    && cp -r /src/frontend/wwwroot/. /app/publish/wwwroot/
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app

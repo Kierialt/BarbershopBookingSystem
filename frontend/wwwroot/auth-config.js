@@ -1,8 +1,18 @@
-// Adres API backendu (port z backend/Properties/launchSettings.json → profil „http”).
-window.BARBERSHOP_API = "http://localhost:5140";
+(function () {
+    if (typeof window.BARBERSHOP_API === 'string' && window.BARBERSHOP_API.length > 0) {
+        return;
+    }
+    var host = window.location.hostname;
+    var port = window.location.port;
+    if (host === 'localhost' && (port === '5075' || port === '7010')) {
+        window.BARBERSHOP_API = 'http://localhost:5140';
+    } else {
+        window.BARBERSHOP_API = window.location.origin;
+    }
+})();
 
 window.addEventListener('DOMContentLoaded', () => {
-    const base = window.BARBERSHOP_API || "http://localhost:5140";
+    const base = window.BARBERSHOP_API;
 
     const loginForm = document.getElementById("loginForm");
     if (loginForm?.addEventListener) {

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reservationsList = document.getElementById('reservationsList');
     const logoutButton = document.getElementById('logoutButton');
     const activeBookingsCount = document.getElementById('activeBookingsCount');
-    const base = window.BARBERSHOP_API || 'http://localhost:5140';
+    const base = window.BARBERSHOP_API || window.location.origin;
 
     if (!token) {
         window.location.href = 'login.html';

@@ -1,4 +1,4 @@
-const API_BASE = window.BARBERSHOP_API || 'http://localhost:5140';
+const API_BASE = window.BARBERSHOP_API;
 
 document.addEventListener('DOMContentLoaded', () => {
     const cityButtonsContainer = document.querySelector('.city-buttons');
