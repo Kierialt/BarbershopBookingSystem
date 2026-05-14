@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,6 +55,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAvailabilityService, AvailabilityService>();
+builder.Services.AddScoped<IShopAuthorizationService, ShopAuthorizationService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddHttpClient<IExternalBarbershopCatalog, OverpassBarbershopCatalog>((sp, client) =>
 {
@@ -122,11 +124,15 @@ using (var scope = app.Services.CreateScope())
     if (app.Environment.IsDevelopment())
     {
         var configuration = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
+        await DevStaffAccountsSeeder.EnsureAsync(db, userManager, configuration,
+            loggerFactory.CreateLogger("DevStaffAccounts"));
+
         var adminEmail = configuration["Demo:DevAdminEmail"]?.Trim();
         var adminPassword = configuration["Demo:DevAdminPassword"];
         if (!string.IsNullOrEmpty(adminEmail) && !string.IsNullOrEmpty(adminPassword))
         {
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
             if (adminUser is null)
             {

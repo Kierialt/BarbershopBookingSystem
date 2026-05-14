@@ -13,11 +13,14 @@ public class BookingService : IBookingService
 
     private readonly ApplicationDbContext _db;
     private readonly IAvailabilityService _availability;
+    private readonly IShopAuthorizationService _shopAuth;
 
-    public BookingService(ApplicationDbContext db, IAvailabilityService availability)
+    public BookingService(ApplicationDbContext db, IAvailabilityService availability,
+        IShopAuthorizationService shopAuth)
     {
         _db = db;
         _availability = availability;
+        _shopAuth = shopAuth;
     }
 
     public async Task<(bool Ok, string? Error, Booking? Booking)> CreateAsync(string clientId, int barberId,
@@ -105,6 +108,62 @@ public class BookingService : IBookingService
         var now = DateTime.UtcNow;
         if (newStartUtc < now + MinLeadTimeBeforeStart)
             return (false, "Nowy termin musi być co najmniej za godzinę.");
+
+        var newEnd = newStartUtc + TimeSpan.FromMinutes(booking.Service.DurationMinutes);
+        if (await OverlapsAsync(booking.BarberId, newStartUtc, newEnd, excludeBookingId: booking.Id,
+                cancellationToken))
+            return (false, "Wybrany termin jest już zajęty.");
+
+        var allowed = await _availability.GetAvailableSlotsUtcAsync(booking.BarberId, booking.ServiceId, newDay,
+            cancellationToken);
+        if (!allowed.Any(s => Math.Abs((s - newStartUtc).TotalMinutes) < 1))
+            return (false, "Termin nie wypada w dostępnych slotach pracy salonu.");
+
+        booking.StartUtc = newStartUtc;
+        booking.EndUtc = newEnd;
+        await _db.SaveChangesAsync(cancellationToken);
+        return (true, null);
+    }
+
+    public async Task<(bool Ok, string? Error)> StaffCancelAsync(string userId, IReadOnlyList<string> roles,
+        int bookingId, CancellationToken cancellationToken = default)
+    {
+        if (!await _shopAuth.CanStaffAccessBookingAsync(userId, roles, bookingId, cancellationToken))
+            return (false, "Brak uprawnień do anulowania tej rezerwacji.");
+
+        var booking = await _db.Bookings.FirstOrDefaultAsync(b => b.Id == bookingId, cancellationToken);
+        if (booking is null)
+            return (false, "Rezerwacja nie istnieje.");
+        if (booking.Status == BookingStatus.Cancelled)
+            return (false, "Rezerwacja jest już anulowana.");
+
+        booking.Status = BookingStatus.Cancelled;
+        await _db.SaveChangesAsync(cancellationToken);
+        return (true, null);
+    }
+
+    public async Task<(bool Ok, string? Error)> StaffRescheduleAsync(string userId, IReadOnlyList<string> roles,
+        int bookingId, DateOnly newDay, DateTime newStartUtc, CancellationToken cancellationToken = default)
+    {
+        if (!await _shopAuth.CanStaffAccessBookingAsync(userId, roles, bookingId, cancellationToken))
+            return (false, "Brak uprawnień do zmiany tej rezerwacji.");
+
+        newStartUtc = NormalizeUtc(newStartUtc);
+        var startPolandDate = GetPolandDateFromUtc(newStartUtc);
+        if (startPolandDate != newDay)
+            return (false,
+                "Pole newDay musi być tym samym dniem kalendarzowym co newStartUtc w strefie Europe/Warsaw.");
+
+        var booking = await _db.Bookings
+            .Include(b => b.Service)
+            .FirstOrDefaultAsync(b => b.Id == bookingId, cancellationToken);
+        if (booking is null)
+            return (false, "Rezerwacja nie istnieje.");
+        if (booking.Status == BookingStatus.Cancelled)
+            return (false, "Nie można zmienić anulowanej rezerwacji.");
+
+        if (newStartUtc < DateTime.UtcNow)
+            return (false, "Nowy termin nie może być w przeszłości.");
 
         var newEnd = newStartUtc + TimeSpan.FromMinutes(booking.Service.DurationMinutes);
         if (await OverlapsAsync(booking.BarberId, newStartUtc, newEnd, excludeBookingId: booking.Id,

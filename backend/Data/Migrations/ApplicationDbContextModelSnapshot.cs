@@ -278,6 +278,9 @@ namespace backend.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("OwnerUserId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Phone")
                         .HasMaxLength(40)
                         .HasColumnType("TEXT");
@@ -287,6 +290,8 @@ namespace backend.Data.Migrations
                     b.HasIndex("CityId");
 
                     b.HasIndex("ExternalPlaceId");
+
+                    b.HasIndex("OwnerUserId");
 
                     b.ToTable("Barbershops");
                 });
@@ -352,6 +357,44 @@ namespace backend.Data.Migrations
                     b.HasIndex("Name");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("backend.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BarbershopId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ModerationStatus")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BarbershopId");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ModerationStatus");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("backend.Models.Service", b =>
@@ -464,7 +507,14 @@ namespace backend.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("backend.Models.ApplicationUser", "Owner")
+                        .WithMany("OwnedBarbershops")
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.Navigation("City");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("backend.Models.Booking", b =>
@@ -494,6 +544,25 @@ namespace backend.Data.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("backend.Models.Review", b =>
+                {
+                    b.HasOne("backend.Models.Barbershop", "Barbershop")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BarbershopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backend.Models.ApplicationUser", "Client")
+                        .WithMany("AuthoredReviews")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Barbershop");
+
+                    b.Navigation("Client");
+                });
+
             modelBuilder.Entity("backend.Models.Service", b =>
                 {
                     b.HasOne("backend.Models.Barbershop", "Barbershop")
@@ -507,9 +576,13 @@ namespace backend.Data.Migrations
 
             modelBuilder.Entity("backend.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("AuthoredReviews");
+
                     b.Navigation("BarberProfiles");
 
                     b.Navigation("ClientBookings");
+
+                    b.Navigation("OwnedBarbershops");
                 });
 
             modelBuilder.Entity("backend.Models.Barber", b =>
@@ -520,6 +593,8 @@ namespace backend.Data.Migrations
             modelBuilder.Entity("backend.Models.Barbershop", b =>
                 {
                     b.Navigation("Barbers");
+
+                    b.Navigation("Reviews");
 
                     b.Navigation("Services");
                 });

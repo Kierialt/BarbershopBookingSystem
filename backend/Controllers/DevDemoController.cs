@@ -1,8 +1,10 @@
 using backend.Data;
 using backend.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace backend.Controllers;
 
@@ -29,6 +31,8 @@ public class DevDemoController : ControllerBase
         [FromServices] ApplicationDbContext db,
         [FromServices] IWebHostEnvironment env,
         [FromServices] IConfiguration configuration,
+        [FromServices] UserManager<ApplicationUser> userManager,
+        [FromServices] ILoggerFactory loggerFactory,
         CancellationToken cancellationToken)
     {
         if (!env.IsDevelopment())
@@ -43,6 +47,9 @@ public class DevDemoController : ControllerBase
         }
 
         await BarbershopDemoSeeder.ReseedDemoDomainAsync(db, cancellationToken);
+
+        await DevStaffAccountsSeeder.EnsureAsync(db, userManager, configuration,
+            loggerFactory.CreateLogger("DevStaffReseed"), cancellationToken);
 
         var cities = await db.Cities.CountAsync(cancellationToken);
         var shops = await db.Barbershops.CountAsync(cancellationToken);
