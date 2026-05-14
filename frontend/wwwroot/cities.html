@@ -28,17 +28,16 @@
 
             <ul class="nav-links">
                 <li><a href="index.html">Strona główna</a></li>
-                <li><a href="#">Miasta</a></li>
-                <li><a href="#">Usługi</a></li>
+                <li><a href="cities.html">Miasta</a></li>
                 <li><a href="#">Kontakt</a></li>
             </ul>
 
             <div class="user-menu">
-
                 <button class="user-btn">
-                    👤
+                    <span class="user-icon"><img src="img/icon.png" alt=""></span>
                 </button>
-
+                <div class="dropdown-menu">
+                </div>
             </div>
 
         </nav>
@@ -62,43 +61,7 @@
             </h2>
 
             <div class="city-buttons">
-
-                <button class="city-btn active" data-city="warszawa">
-                    Warszawa
-                </button>
-
-                <button class="city-btn" data-city="krakow">
-                    Kraków
-                </button>
-
-                <button class="city-btn" data-city="rzeszow">
-                    Rzeszów
-                </button>
-
-                <button class="city-btn" data-city="gdansk">
-                    Gdańsk
-                </button>
-
-                <button class="city-btn" data-city="wroclaw">
-                    Wrocław
-                </button>
-
-                <button class="city-btn" data-city="poznan">
-                    Poznań
-                </button>
-
-                <button class="city-btn" data-city="lodz">
-                    Łódź
-                </button>
-
-                <button class="city-btn" data-city="lublin">
-                    Lublin
-                </button>
-
-                <button class="city-btn" data-city="katowice">
-                    Katowice
-                </button>
-
+                <p class="loader">Ładowanie miast...</p>
             </div>
 
         </div>
@@ -106,172 +69,18 @@
         <!-- RIGHT -->
 
         <div class="barbershops-content">
-
-            <!-- WARSZAWA -->
-
-            <div class="city-panel active" id="warszawa">
-
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3></h3>
-
-                        <p>
-                            Premium barbershop w centrum Warszawy.
-                            Profesjonalni barberzy, luksusowe wnętrze
-                            i najwyższa jakość usług.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-
+            <div class="shop-list-container" id="shopList">
+                <p class="loader">Ładowanie salonów...</p>
             </div>
 
-            <!-- KRAKOW -->
+            <!-- RESERVATION PANEL -->
 
-            <div class="city-panel" id="krakow">
-
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Royal Barber Kraków</h3>
-
-                        <p>
-                            Barber premium z wyjątkową atmosferą
-                            i najlepszymi barberami w Krakowie.
-                        </p>
-
-                    </div>
-
+            <div class="reservation-panel" id="reservationPanel">
+                <span class="sidebar-subtitle">REZERWACJA</span>
+                <h2>Zarezerwuj swój termin</h2>
+                <div class="reservation-card" id="reservationCard">
+                    <p class="empty-state">Kliknij salon opcji po lewej stronie, aby przejść do rezerwacji.</p>
                 </div>
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Gentlemen Cut</h3>
-
-                        <p>
-                            Nowoczesny salon dla mężczyzn ceniących styl,
-                            komfort i perfekcyjne strzyżenie.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- RZESZOW -->
-
-            <div class="city-panel" id="rzeszow">
-
-                <div class="shop-card">
-
-                    <img src="#" alt="Barber">
-
-                    <div class="shop-info">
-
-                        <h3>Barber Rzeszów Marszałkowska</h3>
-
-                        <p>
-                            Elegancki salon z profesjonalnym podejściem
-                            oraz nowoczesnym stylem premium.
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
@@ -279,6 +88,7 @@
     </section>
     
 
+    <script src="user-menu.js"></script>
     <script src="cities.js"></script>
 
 </body>

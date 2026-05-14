@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links a');
 
     links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || !href.startsWith('#')) {
+            return;
+        }
+
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
@@ -29,19 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    });
-
-    // ===== DROPDOWN =====
-    const userBtn = document.querySelector('.user-btn');
-    const userMenu = document.querySelector('.user-menu');
-
-    userBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        userMenu.classList.toggle('active');
-    });
-
-    document.addEventListener('click', () => {
-        userMenu.classList.remove('active');
     });
 
 });

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberBook - Profil</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="index.html">Barber<span>Book</span></a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Strona glowna</a></li>
+                <li><a href="cities.html">Salony</a></li>
+                <li><a href="#reservations">Moje rezerwacje</a></li>
+            </ul>
+
+            <div class="user-menu">
+                <button class="user-btn">
+                    <span class="user-icon"><img src="img/icon.png" alt=""></span>
+                </button>
+                <div class="dropdown-menu"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-page">
+        <section class="profile-hero">
+            <div>
+                <span class="section-label">PROFIL</span>
+                <h1>Moj profil</h1>
+                <p>Zarzadzaj wizytami, sprawdzaj terminy i wracaj do ulubionych salonow.</p>
+            </div>
+
+            <a class="hero-action" href="cities.html">Nowa rezerwacja</a>
+        </section>
+
+        <section class="profile-grid">
+            <article class="profile-card">
+                <span class="section-label">DANE KONTA</span>
+                <h2 id="profileName">Uzytkownik</h2>
+                <p id="profileEmail">Adres e-mail</p>
+            </article>
+
+            <article class="profile-card profile-stat">
+                <span class="section-label">AKTYWNE WIZYTY</span>
+                <strong id="activeBookingsCount">0</strong>
+                <p>Nadchodzace rezerwacje</p>
+            </article>
+
+            <article class="profile-card profile-actions">
+                <span class="section-label">KONTO</span>
+                <a href="cities.html">Zarezerwuj wizyte</a>
+                <button type="button" id="logoutButton">Wyloguj sie</button>
+            </article>
+        </section>
+
+        <section class="reservations-section" id="reservations">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">REZERWACJE</span>
+                    <h2>Moje rezerwacje</h2>
+                </div>
+            </div>
+
+            <div class="reservations-list" id="reservationsList">
+                <p class="empty-state">Ladowanie rezerwacji...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="auth-config.js"></script>
+    <script src="user-menu.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

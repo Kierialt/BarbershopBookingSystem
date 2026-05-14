@@ -165,18 +165,12 @@ body {
     padding: 70px;
 }
 
-/* CITY PANEL */
+/* SHOP LIST */
 
-.city-panel {
-    display: none;
-
-    flex-direction: column;
-
-    gap: 35px;
-}
-
-.city-panel.active {
+.shop-list-container {
     display: flex;
+    flex-direction: column;
+    gap: 35px;
 }
 
 /* SHOP CARD */
@@ -196,12 +190,97 @@ body {
     overflow: hidden;
 
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .shop-card:hover {
     transform: translateY(-8px);
 
     border-color: #f2b705;
+}
+
+.shop-card.active {
+    background: #f2b705;
+    color: #111;
+    border-color: transparent;
+}
+
+.reservation-panel {
+    margin-top: 40px;
+    padding: 34px;
+    border-radius: 28px;
+    background: #111;
+    border: 1px solid #1f1f1f;
+}
+
+.reservation-panel h2 {
+    font-size: 36px;
+    margin: 18px 0 20px;
+}
+
+.reservation-card {
+    padding: 24px;
+    border-radius: 22px;
+    border: 1px solid #1f1f1f;
+    background: #0f0f0f;
+}
+
+.reservation-card p {
+    color: #c7c7c7;
+    line-height: 1.8;
+}
+
+.reservation-card .reservation-info {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.reservation-card .reservation-info span {
+    color: #d1d1d1;
+}
+
+.reservation-form {
+    display: grid;
+    gap: 20px;
+}
+
+.reservation-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #c7c7c7;
+    font-size: 14px;
+}
+
+.reservation-form input,
+.reservation-form select {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid #222;
+    background: #121212;
+    color: white;
+}
+
+.reservation-form button {
+    width: 220px;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    background: #f2b705;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.reservation-form button:hover {
+    background: #ffcf33;
+}
+
+.reservation-card .message-box {
+    margin-top: 14px;
+    color: #d4d4d4;
 }
 
 /* IMAGE */
@@ -224,6 +303,84 @@ body {
 }
 
 /* INFO */
+
+.user-menu {
+    margin-left: auto;
+    position: relative;
+}
+
+.user-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #111;
+    border: 1px solid #2b2b2b;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.user-btn:hover {
+    border-color: #f2b705;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 210px;
+    background: #111;
+    border: 1px solid #2b2b2b;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+.user-menu.active .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu a,
+.dropdown-logout {
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-logout:hover {
+    background: #1a1a1a;
+    color: #f2b705;
+}
 
 .shop-info {
     padding-right: 30px;
